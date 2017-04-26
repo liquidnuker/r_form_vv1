@@ -834,6 +834,9 @@ template {
   .form1 label {
     display: block;
     text-align: left; }
+  .form1 small {
+    display: block;
+    text-align: left; }
   .form1 input[type=text],
   .form1 input[type=password],
   .form1 input[type=email],

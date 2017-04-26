@@ -10325,11 +10325,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "vee-form"
     }
-  }, [_c('form', [_c('label', {
+  }, [_c('form', {
+    staticClass: "form1"
+  }, [_c('label', {
+    attrs: {
+      "for": "username"
+    }
+  }, [_vm._v("username")]), _vm._v(" "), _c('small', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('username')),
+      expression: "errors.has('username')"
+    }]
+  }, [_vm._v(_vm._s(_vm.errors.first('username')))]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required|username'),
+      expression: "'required|username'"
+    }],
+    staticClass: "col-sm-12",
+    attrs: {
+      "type": "text",
+      "name": "username"
+    }
+  }), _vm._v(" "), _c('label', {
     attrs: {
       "for": "email"
     }
-  }, [_vm._v("Email")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Email")]), _vm._v(" "), _c('small', {
     directives: [{
       name: "show",
       rawName: "v-show",
