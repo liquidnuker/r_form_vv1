@@ -10373,6 +10373,39 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "text",
       "name": "email"
     }
+  }), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "password"
+    }
+  }, [_vm._v("Password")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required|confirmed:password_confirm'),
+      expression: "'required|confirmed:password_confirm'"
+    }],
+    staticClass: "col-sm-12",
+    attrs: {
+      "name": "password",
+      "type": "password"
+    }
+  }), _vm._v(" "), _c('small', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.fields.failed('password')),
+      expression: "fields.failed('password')"
+    }]
+  }, [_vm._v(_vm._s(_vm.errors.first('password')))]), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "password_confirm"
+    }
+  }, [_vm._v("Confirm Password")]), _vm._v(" "), _c('input', {
+    staticClass: "col-sm-12",
+    attrs: {
+      "name": "password_confirm",
+      "type": "password"
+    }
   })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
