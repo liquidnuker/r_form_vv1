@@ -10331,7 +10331,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "username"
     }
-  }, [_vm._v("username")]), _vm._v(" "), _c('small', {
+  }, [_vm._v("username required|alpha|max:6")]), _vm._v(" "), _c('small', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -10342,8 +10342,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "validate",
       rawName: "v-validate",
-      value: ('required|username'),
-      expression: "'required|username'"
+      value: ('required|alpha|max:6'),
+      expression: "'required|alpha|max:6'"
     }],
     staticClass: "col-sm-12",
     attrs: {
