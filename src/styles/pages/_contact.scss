@@ -1,0 +1,47 @@
+/* pages/_contact.scss
+   =================================================*/
+@include bs4_custom-select;
+@include bs4_custom_checkbox_radios;
+
+// validator-specific styles
+// ==================================================/
+
+
+
+// form-specific styles
+// ==================================================/
+.form1 {
+  text-align: center;
+  position: relative;
+  label {
+    display: block;
+    text-align: left;
+  }
+
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  textarea {
+    @include input_text--custom;
+    display: block;
+    width: 100%;
+
+    &:focus {
+      @include input_text_focus--custom;
+    }
+  }
+}
+
+// mobile portrait (320x480) 
+@include mq($from: mobile) {
+  
+}
+
+// *small tablet portrait (600x800)
+@include mq($from: smallTabletPortrait) {
+  .form1 {
+    margin-left: auto;
+    margin-right: auto;
+    // max-width: 80%;
+  }
+}
