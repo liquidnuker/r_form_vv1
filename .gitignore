@@ -2,6 +2,7 @@
 notes.txt
 *.glue
 orig_package.json
+dist
 
 ### OSX ###
 *.DS_Store
