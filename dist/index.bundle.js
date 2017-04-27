@@ -10347,6 +10347,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     staticClass: "col-sm-12",
     attrs: {
+      "id": "username",
       "type": "text",
       "name": "username"
     }
@@ -10370,6 +10371,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     staticClass: "col-sm-12",
     attrs: {
+      "id": "email",
       "type": "text",
       "name": "email"
     }
@@ -10386,6 +10388,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }],
     staticClass: "col-sm-12",
     attrs: {
+      "id": "password",
       "name": "password",
       "type": "password"
     }
@@ -10403,10 +10406,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Confirm Password")]), _vm._v(" "), _c('input', {
     staticClass: "col-sm-12",
     attrs: {
+      "id": "password_confirm",
       "name": "password_confirm",
       "type": "password"
     }
-  })])])
+  }), _vm._v(" "), _c('small', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('terms')),
+      expression: "errors.has('terms')"
+    }]
+  }, [_vm._v(_vm._s(_vm.errors.first('terms')))]), _vm._v(" "), _c('label', {
+    attrs: {
+      "for": "terms"
+    }
+  }, [_c('input', {
+    directives: [{
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    attrs: {
+      "name": "terms",
+      "id": "terms",
+      "type": "checkbox"
+    }
+  }), _vm._v("\r\n    agree terms\r\n    ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
