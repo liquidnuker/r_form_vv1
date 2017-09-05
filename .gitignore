@@ -3,6 +3,7 @@ notes.txt
 *.glue
 orig_package.json
 dist
+temp/
 
 ### OSX ###
 *.DS_Store

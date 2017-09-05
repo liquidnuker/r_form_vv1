@@ -1,5 +1,5 @@
 import "./styles/main.scss";
-import Vue from 'vue';
+// import Vue from 'vue';
 import veeForm from './form.vue'
 
 import VeeValidate from 'vee-validate';

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 var Promise = require('es6-promise').Promise;
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('[name].bundle.css');
+const extractCSS = new ExtractTextPlugin('../[name].bundle.css');
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
@@ -13,8 +13,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    // publicPath: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js'
+    publicPath: "dist/",
+    filename: '[name].bundle.js',
+    chunkFilename: '[id].chunk.js'
   },
   module: {
     rules: [
@@ -23,16 +24,16 @@ module.exports = {
         test: /\.scss$/,
         loader: extractCSS.extract(['css-loader', 'sass-loader'])
       },
-      // // url loader
-      // {
-      //   test: /\.(png|jpg|otf|ttf)$/,
-      //   use: [{
-      //     loader: 'url-loader',
-      //     options: {
-      //       limit: 10000
-      //     } // Convert images < 10k to base64 strings
-      //   }]
-      // },
+      // url loader
+      {
+        test: /\.(png|svg|jpg|otf|ttf)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          } // Convert images < 10k to base64 strings
+        }]
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -54,6 +55,11 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+  externals: {
+    $: 'jquery',
+    Vue: 'vue',
+    VueRouter: 'vue-router'
   },
   plugins: [
     // new webpack.ProvidePlugin({
