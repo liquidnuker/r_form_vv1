@@ -8,16 +8,13 @@
 @import "base/colors";
 @import "vendor/normalize"; 
 @import "base/fonts";
-// @import "components/buttons";
+@import "components/buttons";
 
 @import "vendor/mq"; 
 @import "layout/grid";
 
-@import "components/bs4_custom-form-elements";
-@import "components/custom-form-elements";
+@import "vendor/select-css";
 
-// 
-// ==================================================/
 @import "pages/contact";
 
 // show col-* grid borders
@@ -27,3 +24,8 @@
 // show the active breakpoint (_mq.scss)
 // ==================================================/
 // @include mq-show-breakpoints;
+
+// temp 
+body {
+  @extend %system_normal--300;
+}

@@ -1,39 +1,75 @@
-/* pages/_contact.scss
-   =================================================*/
-@include bs4_custom-select;
-@include bs4_custom_checkbox_radios;
-
 // validator-specific styles
 // ==================================================/
+.form1 {
+    @extend %text--left;
+    @extend %pos--relative;
+    label {
+      @extend %display--block;
+      @extend %text--left;
+    }
 
+    label.error {
+    @extend %pos--relative;
+    @extend %display--block;
+    @extend %text--left;
+    width: auto;
+    
+  }
 
+}
+
+.newsletter_topics {
+  label {
+    @extend %display--block;
+  }
+  label.error {
+    @extend %display--none;
+  }
+}
+
+.username--error,
+.password--error,
+.confirm_password--error,
+.email--error,
+.agree--error,
+.topic--error,
+.message--error {
+  border: 1px solid green;
+  display: block;
+}
 
 // form-specific styles
 // ==================================================/
+.form1 input[type=text],
+.form1 input[type=password],
+.form1 input[type=email],
+.form1 textarea {
+  @extend %display--block;
+  @extend %padd--4;
+  border: 1px solid #000;  
+  width: 100%;
+  
+  &:focus {
+    
+  }
+}
+
 .form1 {
-  text-align: center;
-  position: relative;
-  label {
-    display: block;
-    text-align: left;
+  .label_agree,
+  .label_newsletter,
+  .label_subtopic {
+    @extend %display--inline-block;
   }
 
-  small {
-    display: block;
-    text-align: left;
+  .form1_agree,
+  .form1_newsletter,
+  .form1_subtopic {
+    @extend %display--block;
+    @extend %text--left;
   }
 
-  input[type=text],
-  input[type=password],
-  input[type=email],
-  textarea {
-    @include input_text--custom;
-    display: block;
-    width: 100%;
-
-    &:focus {
-      @include input_text_focus--custom;
-    }
+  .custom-select1_01 {
+    
   }
 }
 

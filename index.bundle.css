@@ -1,3 +1,7 @@
+.form1 {
+  position: relative;
+}
+
 main {
   display: block;
 }
@@ -6,9 +10,13 @@ main {
   display: none;
 }
 
-html,body,div,form {
+html,body,div,form,[type="reset"],[type="submit"] {
   margin: 0;
   padding: 0;
+}
+
+.form1 {
+  text-align: left;
 }
 
 *,*:before,*:after {
@@ -99,6 +107,14 @@ html [type="button"],[type="reset"],[type="submit"] {
   src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"), local(".LucidaGrandeUI"), local("Segoe UI"), local("Ubuntu"), local("Roboto-Regular"), local("DroidSans"), local("Tahoma");
 }
 
+body {
+  font-family: "system_normal--300";
+}
+
+[type="reset"],[type="submit"] {
+  font-family: sans-serif;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -170,15 +186,60 @@ html [type="button"],[type="reset"],[type="submit"] {
   }
 }
 
-/* components/_custom_form-elements.scss
-=================================================*/
+@supports (box-shadow: none) {
+  .custom-select1_01 select:focus {
+    outline: none;
+  }
+}
 
-/* pages/_contact.scss
-   =================================================*/
+@supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
+  .custom-select1_01 select {
+    padding-right: 2em;
+    background: none;
+    border: 1px solid transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 
-.form1 {
-  text-align: center;
-  position: relative;
+  .custom-select1_01 select:focus {
+    border-color: #aaa;
+  }
+}
+
+@-moz-document url-prefix()  {
+  .custom-select1_01 {
+    overflow: hidden;
+  }
+
+  .custom-select1_01::after {
+    display: block;
+  }
+
+  .custom-select1_01 select {
+    overflow: -moz-hidden-unscrollable;
+    padding-right: .4em;
+    background: none;
+    border: 1px solid transparent;
+    min-width: 6em;
+    width: 130%;
+    min-width: -moz-calc(0em);
+    width: -moz-calc(100% + 2.4em);
+    min-width: calc(0em);
+    width: calc(100% + 2.4em);
+  }
+
+@supports (mask-type: alpha) {
+    .custom-select1_01 {
+      overflow: visible;
+    }
+
+    .custom-select1_01 select {
+      -moz-appearance: none;
+      width: 100%;
+      padding-right: 2em;
+    }
+}
 }
 
 @media (min-width: 37.5em) {
