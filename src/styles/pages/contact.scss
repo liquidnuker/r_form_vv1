@@ -1,0 +1,51 @@
+@mixin form1_theme() {
+  .form1 {
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    textarea {
+      background-color: #eee;
+      border: 1px solid #000;
+
+      &:focus {
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        outline: 2px solid blue;
+        background-color: #eee;
+      }
+    }
+  }
+}
+@include form1_theme();
+
+.form1 {
+  @extend %padd--4;
+  @extend %text--left;
+  @extend %pos--relative;
+  
+  label {
+    @extend %display--block;
+    @extend %text--left;
+    padding: 4px 4px 4px 0; /* trbl */
+  }
+
+  small {
+    @extend %display--block;
+    padding: 2px 4px 2px 0; /* trbl */
+  }
+
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  textarea {
+    @extend %display--inline-block;
+    @extend %padd--4;
+    @extend %width--100p;
+    
+    &:focus {
+      
+    }
+  } 
+}
+
+  

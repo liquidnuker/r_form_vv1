@@ -255,13 +255,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "username"
     }
-  }, [_vm._v("username required|alpha|max:6")]), _vm._v(" "), _c('small', {
+  }, [_vm._v("username: required|alpha|max:6")]), _vm._v(" "), _c('small', {
     directives: [{
       name: "show",
       rawName: "v-show",
       value: (_vm.errors.has('username')),
       expression: "errors.has('username')"
-    }]
+    }],
+    attrs: {
+      "role": "alert"
+    }
   }, [_vm._v(_vm._s(_vm.errors.first('username')))]), _vm._v(" "), _c('input', {
     directives: [{
       name: "validate",
@@ -269,7 +272,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       value: ('required|alpha|max:6'),
       expression: "'required|alpha|max:6'"
     }],
-    staticClass: "col-sm-12",
     attrs: {
       "id": "username",
       "type": "text",
@@ -285,7 +287,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       rawName: "v-show",
       value: (_vm.errors.has('email')),
       expression: "errors.has('email')"
-    }]
+    }],
+    attrs: {
+      "role": "alert"
+    }
   }, [_vm._v(_vm._s(_vm.errors.first('email')))]), _vm._v(" "), _c('input', {
     directives: [{
       name: "validate",
@@ -293,7 +298,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       value: ('required|email'),
       expression: "'required|email'"
     }],
-    staticClass: "col-sm-12",
     attrs: {
       "id": "email",
       "type": "text",
@@ -303,32 +307,33 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "password"
     }
-  }, [_vm._v("Password")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Password")]), _vm._v(" "), _c('small', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.fields.failed('password')),
+      expression: "fields.failed('password')"
+    }],
+    attrs: {
+      "role": "alert"
+    }
+  }, [_vm._v(_vm._s(_vm.errors.first('password')))]), _vm._v(" "), _c('input', {
     directives: [{
       name: "validate",
       rawName: "v-validate",
       value: ('required|confirmed:password_confirm'),
       expression: "'required|confirmed:password_confirm'"
     }],
-    staticClass: "col-sm-12",
     attrs: {
       "id": "password",
       "name": "password",
       "type": "password"
     }
-  }), _vm._v(" "), _c('small', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.fields.failed('password')),
-      expression: "fields.failed('password')"
-    }]
-  }, [_vm._v(_vm._s(_vm.errors.first('password')))]), _vm._v(" "), _c('label', {
+  }), _vm._v(" "), _c('label', {
     attrs: {
       "for": "password_confirm"
     }
   }, [_vm._v("Confirm Password")]), _vm._v(" "), _c('input', {
-    staticClass: "col-sm-12",
     attrs: {
       "id": "password_confirm",
       "name": "password_confirm",
@@ -340,7 +345,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       rawName: "v-show",
       value: (_vm.errors.has('terms')),
       expression: "errors.has('terms')"
-    }]
+    }],
+    attrs: {
+      "role": "alert"
+    }
   }, [_vm._v(_vm._s(_vm.errors.first('terms')))]), _vm._v(" "), _c('label', {
     attrs: {
       "for": "terms"
@@ -357,7 +365,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "id": "terms",
       "type": "checkbox"
     }
-  }), _vm._v("\r\n    agree terms\r\n    ")])])])
+  }), _vm._v("\r\n      agree terms\r\n    ")])])])
 }
 var staticRenderFns = []
 render._withStripped = true

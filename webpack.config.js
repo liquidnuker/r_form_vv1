@@ -70,7 +70,7 @@ module.exports = {
       // Give paths to parse for rules. These should be absolute!
       paths: glob.sync([
         path.join(__dirname, '*.html'),
-        path.join(__dirname, 'src/vue-components/*.vue')
+        path.join(__dirname, 'src/*.vue')
       ]),
     })
 
