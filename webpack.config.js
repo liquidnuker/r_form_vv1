@@ -72,8 +72,11 @@ module.exports = {
         path.join(__dirname, '*.html'),
         path.join(__dirname, 'src/*.vue')
       ]),
-    })
-
+      purifyOptions: {
+        whitelist: [ '*:not*' ]
+      },
+      minimize: true
+    }),
   ],
   resolve: {
     modules: [
