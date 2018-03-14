@@ -5,6 +5,10 @@ orig_package.json
 dist
 temp/
 
+##
+uploads
+connect.php
+
 ### OSX ###
 *.DS_Store
 .AppleDouble

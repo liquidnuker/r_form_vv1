@@ -1,12 +1,11 @@
 import "./styles/main.scss";
 // import Vue from 'vue';
-import veeForm from './form.vue'
 
-import VeeValidate from 'vee-validate';
-Vue.use(VeeValidate);
+const veeForm = () => import('./form.vue');
 
-const renderComponent = new Vue({
-  el: '#vee-form-holder',
+new Vue({
+  el: "#vee-form-holder",
+  // router,
   render: h => h(veeForm)
 });
 
