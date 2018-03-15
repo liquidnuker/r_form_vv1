@@ -74,9 +74,9 @@ export default {
         formData.append("f_name", this.name);
         formData.append("f_email", this.email);
         formData.append("f_password", this.password);
-        formData.append("f_confirmpassword", this.confirmpassword);
-        formData.append("f_file", this.file);
         formData.append("f_agree", this.agree);
+
+        formData.append("f_file", this.file);
 
         // let self = this;
         axios.post("./src/php/process.php", formData, {
@@ -91,6 +91,8 @@ export default {
       },
       validate: function (e) {
         e.preventDefault(); 
+
+        // this.submitFile();
 
         this.$validator.validateAll().then(() => {
           // ok
