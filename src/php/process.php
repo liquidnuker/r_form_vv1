@@ -1,5 +1,7 @@
 <?php 
 require "./vendor/gump.class.php";
+require "./utils/imageupload.class.php";
+
 // var_dump($_FILES);
 // var_dump($_POST);
 // echo $_FILES['f_file']['name']; 
@@ -46,7 +48,9 @@ if($validated === TRUE) {
   // echo $postData['email'];
   // echo $postData['file']['name'];
   
-  uploadFile($postData['file']);
+  // upload
+  $uploadFile = new Uploader();
+  $uploadFile->uploadImage($postData['file'], "./uploads/");
   // exit;  
 
 } else {
@@ -56,25 +60,7 @@ if($validated === TRUE) {
   print_r($validated); // Shows all the rules that failed along with the data
 }
 
-function uploadFile($file) {
-  $path = "./uploads/";
-  $path = $path . basename( $file['name']);
-  if(move_uploaded_file($file['tmp_name'], $path)) {
-    echo "The file ".  basename( $file['name']).
-    " has been uploaded";
-
-  // dimensions
-  $dimensions = getimagesize($path);
-  echo "width" . $dimensions[0] . "height" . $dimensions[1]; 
-
-  // size
-  echo filesize($path); // ok
-  // echo FileSizeConvert(filesize($path)); 
-  } else {
-    echo "There was an error uploading the file";
-  }
-}
-
+// hash password...
 // insert...
 
 ?>
