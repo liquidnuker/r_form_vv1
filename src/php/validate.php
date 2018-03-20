@@ -1,10 +1,12 @@
 <?php 
 require "./vendor/gump.class.php";
 require "./utils/imageupload.class.php";
+session_start();
 
 // var_dump($_FILES);
 // var_dump($_POST);
 // echo $_FILES['f_file']['name']; 
+// echo $_SESSION['phrase']; 
 
 $validator = new GUMP();
 
@@ -14,6 +16,7 @@ $postData = array(
   'email' => $_POST['f_email'],
   'password' => $_POST['f_password'],
   'agree' => $_POST['f_agree'],
+  'captcha' => $_POST['f_captcha'],
 );
 
 $files = array(
@@ -27,7 +30,8 @@ $postData = $validator->sanitize(array_merge($postData,$files));
 // Let's define the rules and filters
 $rules = array(
   'email' => 'required|valid_email',
-  'file' => 'required_file|extension,png;jpg'
+  'file' => 'required_file|extension,png;jpg',
+  'captcha' => 'required|alpha_numeric'
 );
 
 $filters = array(
@@ -47,6 +51,8 @@ if($validated === TRUE) {
   print_r($postData); // You can now use POST data safely
   // echo $postData['email'];
   // echo $postData['file']['name'];
+  
+  // todo: verify captcha
   
   // upload
   $uploadFile = new Uploader();

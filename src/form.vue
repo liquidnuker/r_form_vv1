@@ -33,11 +33,17 @@
     <!-- agree -->
     <small v-show="errors.has('terms')" role="alert">{{ errors.first('terms') }}</small>
     <label for="terms">
-      <input name="terms" id="terms"v-validate="'required'" type="checkbox" v-model="agree">
+      <input name="terms" id="terms" v-validate="'required'" type="checkbox" v-model="agree">
       agree terms
     </label>
 
     <br />
+    <!-- captcha -->
+    <img :src="captchaImg" />
+    <label for="captcha">Enter above text</label>
+    <small v-show="errors.has('f_captcha')" role="alert">{{ errors.first('f_captcha') }}</small>
+    <input id="captcha" name="f_captcha" type="text" v-model="captchaText" v-validate="'required'">
+
     <button type="submit">Submit</button>
     
   </form>
@@ -59,15 +65,30 @@ export default {
         password: "",
         confirmpassword: "",
         file: "",
-        agree: false,        
+        agree: false, 
+
+        captchaImg: "",
+        captchaText: ""       
 
       };
     },
-    mounted: function () {},
+    mounted: function () {
+      this.getCaptcha();
+    },
     methods: {
       handleFileUpload: function (e) {
         this.file = e.target.files[0];
         // this.file = this.$refs.file.files[0];
+      },
+      getCaptcha: function() {
+        let self = this;
+        axios.get("./src/php/captcha.php")
+        .then(function (response) {
+          self.captchaImg = response.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       },
       submitFile: function () {
         let formData = new FormData();
@@ -75,11 +96,12 @@ export default {
         formData.append("f_email", this.email);
         formData.append("f_password", this.password);
         formData.append("f_agree", this.agree);
+        formData.append("f_captcha", this.captchaText);
 
         formData.append("f_file", this.file);
 
         // let self = this;
-        axios.post("./src/php/process.php", formData, {
+        axios.post("./src/php/validate.php", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -92,12 +114,12 @@ export default {
       validate: function (e) {
         e.preventDefault(); 
 
-        // this.submitFile();
+        this.submitFile();
 
         this.$validator.validateAll().then(() => {
           // ok
           console.log("valid");
-          this.submitFile();
+          // this.submitFile();
         }).catch(() => {
           console.log("invalid");
           // return false;   
