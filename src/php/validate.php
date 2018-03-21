@@ -1,6 +1,7 @@
 <?php 
 require "./vendor/gump.class.php";
 require "./utils/imageupload.class.php";
+require './verify_captcha.php';
 session_start();
 
 // var_dump($_FILES);
@@ -52,7 +53,14 @@ if($validated === TRUE) {
   // echo $postData['email'];
   // echo $postData['file']['name'];
   
-  // todo: verify captcha
+  
+  $vcaptcha = new GrgCaptcha1();
+
+  if ($vcaptcha->verify($postData['captcha'])) {
+    echo "captcha ok"; 
+  } else {
+    echo "retry"; 
+  }
   
   // upload
   $uploadFile = new Uploader();

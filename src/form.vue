@@ -39,7 +39,8 @@
 
     <br />
     <!-- captcha -->
-    <img :src="captchaImg" />
+    <img :src="captchaImg" /><button 
+    @click="$event.preventDefault(); getCaptcha();">refresh</button>
     <label for="captcha">Enter above text</label>
     <small v-show="errors.has('f_captcha')" role="alert">{{ errors.first('f_captcha') }}</small>
     <input id="captcha" name="f_captcha" type="text" v-model="captchaText" v-validate="'required'">
@@ -81,6 +82,7 @@ export default {
         // this.file = this.$refs.file.files[0];
       },
       getCaptcha: function() {
+        
         let self = this;
         axios.get("./src/php/captcha.php")
         .then(function (response) {
@@ -114,12 +116,12 @@ export default {
       validate: function (e) {
         e.preventDefault(); 
 
-        this.submitFile();
+        // this.submitFile();
 
         this.$validator.validateAll().then(() => {
           // ok
           console.log("valid");
-          // this.submitFile();
+          this.submitFile();
         }).catch(() => {
           console.log("invalid");
           // return false;   
