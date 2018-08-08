@@ -2,7 +2,7 @@
 require "./vendor/gump.class.php";
 require "./utils/imageupload.class.php";
 require './verify_captcha.php';
-session_start();
+// session_start();
 
 // var_dump($_FILES);
 // var_dump($_POST);
